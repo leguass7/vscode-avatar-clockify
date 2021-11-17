@@ -7,10 +7,10 @@ import { WorkspaceOption } from '../services/ApiClockify/findProject';
 export async function chooseWorkspaces(): Promise<WorkspaceOption> {
   const findOne = (wsList: WorkspaceOption[], findName: string) => wsList.find(f => f.name === findName);
 
-  const contextWs = ContextManager.getContext()?.globalState.get<WorkspaceOption[]>('workspaces');
-  //   if (contextWs?.length === 1) {
-  //     return findOne(contextWs, contextWs[0].name);
-  //   }
+  const contextWs = ContextManager.globalWorkspaces.get();
+  if (contextWs?.length === 1) {
+    return findOne(contextWs, contextWs[0].name);
+  }
 
   if (contextWs?.length) {
     const workspaceName = await window.showQuickPick([...contextWs.map(ws => ws.name)], { title: 'Select workspace' });

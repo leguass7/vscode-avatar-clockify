@@ -90,7 +90,7 @@
 			"type": "object",
 			"title": "Avatar Clockify Tracker configuration",
 			"properties": {
-				"avatar-clockfy.apiKey": {
+				"avatar-clockify.apiKey": {
 					"type": "string",
 					"default": "",
 					"description": "The Clockify API Key"

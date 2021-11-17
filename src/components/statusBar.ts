@@ -1,5 +1,6 @@
 import { commands, ExtensionContext, StatusBarAlignment, StatusBarItem, window } from 'vscode';
 
+import { configure } from '../config/Configure';
 import { Cmd } from '../config/constants';
 import ContextManager from '../config/ContextManager';
 import { getProjectName } from '../helpers';
@@ -35,7 +36,6 @@ export class StatusBarManager {
         if (!isTracking && tracking.id) {
           commands.executeCommand(Cmd.TRACKING_START);
         }
-        console.log('trackingChecker check isTracking', isTracking);
       });
     };
 
@@ -54,7 +54,10 @@ export class StatusBarManager {
       tracking?.id ? ` • Tracking...` : '',
     ];
     this.statusBarItem.tooltip = this.tooltip.join(' ');
-    if (tracking && tracking?.id) {
+    const apiKey = configure.get<string>('apiKey');
+    if (!apiKey) {
+      this.statusBarItem.command = Cmd.SET_APIKEY;
+    } else if (tracking && tracking?.id) {
       this.statusBarItem.command = Cmd.TRACKING_STOP;
     } else if (this.isTrackerReady()) {
       this.statusBarItem.command = this.project ? Cmd.TRACKING_START : Cmd.QUICKCREATE_PROJECT;

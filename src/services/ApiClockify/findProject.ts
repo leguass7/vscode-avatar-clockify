@@ -16,10 +16,7 @@ export interface WorkspaceOption {
 export async function findFirstProject(projectName: string): Promise<ProjectOption | undefined> {
   const workspaces = await apiClockify.getWorkspaces();
   if (workspaces && workspaces.length) {
-    ContextManager.getContext()?.globalState.update(
-      'workspaces',
-      workspaces.map(ws => ({ id: ws.id, name: ws.name })),
-    );
+    ContextManager.globalWorkspaces.update(workspaces.map(ws => ({ id: ws.id, name: ws.name })));
   }
 
   const getAllProjects = async (wsId: string) => {
