@@ -5,6 +5,7 @@
 	"version": "1.0.1",
 	"license": "MIT",
 	"publisher": "leandrosbrissa",
+	"homepage": "https://www.avatarsolucoesdigitais.com.br",
 	"main": "./out/extension.js",
 	"repository": {
 		"type": "git",
