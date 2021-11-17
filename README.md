@@ -1,11 +1,12 @@
 # avatar-clockify
 
-This is an extension for "VSCode".
-
+This is an extension for [VSCode](https://code.visualstudio.com/).
 
 ## Features
 
-Its purpose is to track hours of development work with "VSCode".
+Its purpose is to track hours of development work with [VSCode](https://code.visualstudio.com/).
+
+* Launch tracker in just one click [time-tracker](https://clockify.me/feature-list#features-time-tracker)
 
 ## Requirements
 
