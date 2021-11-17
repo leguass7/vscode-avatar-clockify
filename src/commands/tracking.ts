@@ -23,13 +23,13 @@ export async function trackingStart() {
 
 export async function trackingStop() {
   const currentTracking = ContextManager.globalTracking.get();
-  const { workspaceId, name, id } = statusBar.getProject();
+  const { workspaceId, name, id, description } = statusBar.getProject();
 
   if (currentTracking && currentTracking.id && workspaceId) {
     const tracking = await apiClockify.stopTracking(`${workspaceId}`, {
       id: currentTracking.id,
       billable: true,
-      description: name,
+      description: description || name,
       projectId: id,
       start: currentTracking.start,
     });
