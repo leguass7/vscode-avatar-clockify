@@ -2,7 +2,7 @@
 	"name": "avatar-clockify",
 	"displayName": "Avatar Clockify",
 	"description": "Quick time tracker for VSCode",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"publisher": "leandrosbrissa",
 	"repository": {
