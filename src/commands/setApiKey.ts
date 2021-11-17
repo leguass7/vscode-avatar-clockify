@@ -25,7 +25,4 @@ export async function setApiKey() {
     // Authenticate
     apiClockify.authenticate(apiKey);
   }
-
-  //   const workspacesProvider = providerStore.get<WorkspacesProvider>('workspaces');
-  //   workspacesProvider.refresh();
 }
