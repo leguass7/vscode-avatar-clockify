@@ -4,16 +4,18 @@ import { registerCommands } from './commands';
 import { statusBar } from './components/statusBar';
 import { configure } from './config/Configure';
 import ContextManager from './config/ContextManager';
-import { askForAPIKey } from './messages/askForAPIKey';
+// import { askForAPIKey } from './messages/askForAPIKey';
 import { apiClockify } from './services/ApiClockify';
 
 export function activate(context: ExtensionContext) {
+  console.log('AVATAR CLOCKIFY STARTED');
   ContextManager.setContextObject(context);
   registerCommands(context);
 
   const apiKey = configure.get<string>('apiKey');
   if (!apiKey) {
-    askForAPIKey();
+    console.log('AVATAR CLOCKIFY NO APIKEY');
+    // askForAPIKey();
   } else {
     apiClockify.authenticate(apiKey);
   }

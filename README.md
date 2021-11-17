@@ -16,7 +16,7 @@ To use it depends on an account created in [Clockify](https://clockify.me/).
 
 Configure your [Clockify user settings](https://clockify.me/user/settings) apiKey in workspace.
 
-* `avatar-clockfy.apiKey`
+* `avatar-clockify.apiKey`
 
 
 ## Release Notes
