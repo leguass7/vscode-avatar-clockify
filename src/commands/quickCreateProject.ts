@@ -1,6 +1,8 @@
-import { window } from 'vscode';
+import { commands, window } from 'vscode';
 
 import { statusBar } from '../components/statusBar';
+import { configure } from '../config/Configure';
+import { Cmd } from '../config/constants';
 import { chooseWorkspaces } from '../messages/chooseWorkspaces';
 import { apiClockify } from '../services/ApiClockify';
 import { CreateProjectDto, ProjectDto } from '../services/ApiClockify/projects.dto';
@@ -13,12 +15,14 @@ export async function quickCreateProject(): Promise<ProjectDto> {
   }
 
   const projectData: CreateProjectDto = {
-    billable: true,
+    billable: !!configure.get('billable'),
     name: statusBar.projectName,
     isPublic: false,
     public: false,
     note: `Auto created by vscode-avatar-clockify`,
   };
+  // implementar: verificar se projeto já existe antes
+
   const project = await apiClockify.createProject(selectedWorkspace.id, projectData);
   if (!project) {
     window.showErrorMessage('Create a new project Error');
@@ -31,5 +35,10 @@ export async function quickCreateProject(): Promise<ProjectDto> {
     workspaceId: project.workspaceId,
   });
   window.showInformationMessage('Successfully created project');
+
+  statusBar.updateStatusBarItem().then(() => {
+    commands.executeCommand(Cmd.TRACKING_START);
+  });
+
   return project;
 }

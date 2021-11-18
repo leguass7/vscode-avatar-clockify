@@ -4,7 +4,6 @@ import { registerCommands } from './commands';
 import { statusBar } from './components/statusBar';
 import { configure } from './config/Configure';
 import ContextManager from './config/ContextManager';
-// import { askForAPIKey } from './messages/askForAPIKey';
 import { apiClockify } from './services/ApiClockify';
 
 export function activate(context: ExtensionContext) {
@@ -24,4 +23,6 @@ export function activate(context: ExtensionContext) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export function deactivate() {}
+export function deactivate() {
+  // implementar: parar tracking se houver
+}

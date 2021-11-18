@@ -7,4 +7,5 @@ export enum Cmd {
   QUICKCREATE_PROJECT = 'avatar-clockify.project.quickcreate',
   TRACKING_START = 'avatar-clockify.tracking.start',
   TRACKING_STOP = 'avatar-clockify.tracking.stop',
+  SET_BILLABLE = 'avatar-clockify.billable.set',
 }

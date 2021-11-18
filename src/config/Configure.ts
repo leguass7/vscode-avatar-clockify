@@ -13,6 +13,7 @@ class Configure {
 
   update(key: AvatarKey, value: any) {
     this.config.update(`${this.configName}.${key}`, value, true);
+    // implementar: verificar possibilidade de gravar no arquivo de configuração
   }
 
   get<T>(key: AvatarKey): T {
@@ -28,4 +29,5 @@ export const configure = new Configure(extensionName);
 
 export interface AvatarConfiguration {
   apiKey: string;
+  billable: boolean;
 }

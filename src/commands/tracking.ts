@@ -1,6 +1,7 @@
 import { window } from 'vscode';
 
 import { statusBar } from '../components/statusBar';
+import { configure } from '../config/Configure';
 import ContextManager from '../config/ContextManager';
 import { apiClockify } from '../services/ApiClockify';
 
@@ -28,7 +29,7 @@ export async function trackingStop() {
   if (currentTracking && currentTracking.id && workspaceId) {
     const tracking = await apiClockify.stopTracking(`${workspaceId}`, {
       id: currentTracking.id,
-      billable: true,
+      billable: !!configure.get('billable'),
       description: description || name,
       projectId: id,
       start: currentTracking.start,

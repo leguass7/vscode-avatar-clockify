@@ -71,15 +71,19 @@
 				"title": "Avatar Clockify Start"
 			},
 			{
-				"command": "avatar-clockfiy.apiKey.set",
+				"command": "avatar-clockifiy.apiKey.set",
 				"title": "Avatar Clockify set API key"
 			},
 			{
-				"command": "avatar-clockfiy.project.quickcreate",
+				"command": "avatar-clockify.billable.set",
+				"title": "Avatar Clockify set billable"
+			},
+			{
+				"command": "avatar-clockifiy.project.quickcreate",
 				"title": "Avatar Clockify Create quick project"
 			},
 			{
-				"command": "avatar-clockfiy.tracking.start",
+				"command": "avatar-clockifiy.tracking.start",
 				"title": "Avatar Clockify Traking start"
 			},
 			{
@@ -95,6 +99,11 @@
 					"type": "string",
 					"default": "",
 					"description": "The Clockify API Key"
+				},
+				"avatar-clockify.billable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Billable"
 				}
 			}
 		}
